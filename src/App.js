@@ -2,9 +2,9 @@ import React, {Component} from "react";
 import './App.css';
 import Header from "./component/Header/Header";
 import Nav from "./component/Nav/Nav";
-import Dialogs from "./component/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
 import Profile from "./component/Profile/Profile";
+import DialogsComponent from "./component/Dialogs/DialogsComponent";
 
 const App = (props) => {
     return (
@@ -13,7 +13,7 @@ const App = (props) => {
                 <Header/>
                 <Nav/>
                 <Route path='/profile' render={() => <Profile/> }/>
-                <Route path='/dialog' render={() => <Dialogs/>}/>
+                <Route path='/dialog' render={() => <DialogsComponent store={props.store}/>}/>
             </div>
         </BrowserRouter>
     );
