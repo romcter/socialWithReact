@@ -6,7 +6,10 @@ const MyPost = (props) => {
     return (
         <div className={mpm.myPost}>
             my post
-            {props.post}
+            <Post/>
+            <Post/>
+            <Post/>
+            <Post/>
             <textarea/>
             <button onClick={() => {alert('jopa')}}> Add Post</button>
         </div>

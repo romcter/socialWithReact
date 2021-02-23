@@ -8,14 +8,16 @@ import DialogsComponent from "./component/Dialogs/DialogsComponent";
 
 const App = (props) => {
     return (
-        <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Nav/>
-                <Route path='/profile' render={() => <Profile/> }/>
-                <Route path='/dialog' render={() => <DialogsComponent store={props.store}/>}/>
+                <Route
+                    path='/profile'
+                    render={() => <Profile/> }/>
+                <Route
+                    path='/dialog'
+                    render={() => <DialogsComponent/>}/>
             </div>
-        </BrowserRouter>
     );
 }
 export default App;

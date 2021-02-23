@@ -1,5 +1,9 @@
-import { createStore } from "redux";
-import reducer from "./reducer";
+import {combineReducers, createStore} from "redux";
+import dialogReducer from "./dialog-reducer";
+
+let reducer = combineReducers({
+    dialogReducer: dialogReducer
+})
 
 let store = createStore(reducer);
 
