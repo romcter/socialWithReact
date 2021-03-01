@@ -1,16 +1,12 @@
 import React, {Component} from "react";
 import pm from './Profile.module.css'
 import MyPost from "./MyPost/MyPost";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) =>{
     return(
         <div className={pm.content}>
-            <div>
-                <img className={pm.main_photo} src='https://www.amateurphotographer.co.uk/wp-content/uploads/2017/11/Bliss_Copyright_preview-e1511540750271.jpeg'/>
-            </div>
-            <div>
-                ava+description
-            </div>
+            <ProfileInfo profilePhoto={props.photo}/>
             <MyPost/>
         </div>
     )

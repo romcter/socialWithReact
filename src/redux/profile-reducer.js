@@ -1,9 +1,27 @@
+let ADD_POST = 'ADD_POST';
+let SET_USER_PHOTO = 'SET_USER_PHOTO';
+
 let initialState = {
-    dialog: [{id: 1, mess: 'hi'}, {id: 1, mess: 'ya'}, {id: 1, mess: 'kiya'}]
+    posts: [],
+    profile: null
 }
 
 const profileReducer = (state = initialState, action) => {
-    return state
+    switch (action.type) {
+        case ADD_POST:
+            let newPost = {
+                id: 6,
+                message: action.newText,
+                likesCount: 0
+            }
+            return { ...state, posts: [...state.posts, newPost]}
+        case SET_USER_PHOTO:
+            return {...state, profile: action.pathToPhoto }
+        default:
+            return state
+    }
 }
+export const addPost = (newTest) => ({type: ADD_POST, newTest})
+export const setUserPhoto = (pathToPhoto) => ({type: SET_USER_PHOTO, pathToPhoto})
 
-export default profileReducer();
+export default profileReducer;

@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import dialogReducer from "./dialog-reducer";
 import thunk from 'redux-thunk';
 import userReducer from './users-reducer';
+import profileReducer from "./profile-reducer";
 
 let reducer = combineReducers({
     dialogReducer: dialogReducer,
-    userPage: userReducer
+    userPage: userReducer,
+    profilePage: profileReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -3,12 +3,14 @@ let UNFOLLOW = 'UNFOLLOW';
 let SET_USERS = 'SET_USERS';
 let SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 let SET_TOTAL_ELEMENTS = 'SET_TOTAL_ELEMENTS';
+let TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
     users: [],
     pageSize: 4,
     totalElements: 0,
     currentPage: 0,
+    isFetching: false
 }
 
 const userReducer = (state = initialState, action) => {
@@ -37,14 +39,17 @@ const userReducer = (state = initialState, action) => {
             return {...state, currentPage: action.currentPage}
         case SET_TOTAL_ELEMENTS:
             return {...state, totalElements: action.totalElements}
+        case TOGGLE_IS_FETCHING:
+            return {...state, isFetching: action.isFetching}
         default:
             return state
     }
 }
-export const followAC = (userId) => ({type: FOLLOW, userId})
-export const unFollowAC = (userId) => ({type: UNFOLLOW, userId})
+export const follow = (userId) => ({type: FOLLOW, userId})
+export const unFollow = (userId) => ({type: UNFOLLOW, userId})
 export const setUsers = (users) => ({type: SET_USERS, users})
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-export const setTotalElementsAC = (totalElements) => ({type: SET_TOTAL_ELEMENTS, totalElements})
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setTotalElements = (totalElements) => ({type: SET_TOTAL_ELEMENTS, totalElements})
+export const toggleFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export default userReducer;

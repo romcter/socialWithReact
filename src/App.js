@@ -1,18 +1,18 @@
-import React, {Component} from "react";
+import React from "react";
 import './App.css';
 import Header from "./component/Header/Header";
 import Nav from "./component/Nav/Nav";
-import {BrowserRouter, Route} from "react-router-dom";
-import Profile from "./component/Profile/Profile";
+import { Route } from "react-router-dom";
 import DialogsComponent from "./component/Dialogs/DialogsComponent";
 import UserComponent from "./component/Users/UserComponent";
+import ProfileComponents from "./component/Profile/ProfileComponents";
 
-const App = (props) => {
+const App = () => {
     return (
         <div className='app-wrapper'>
             <Header/>
             <Nav/>
-            <Route path='/profile' render={() => <Profile/>}/>
+            <Route path='/profile/:userId?' render={() => <ProfileComponents/>}/>
             <Route path='/dialog' render={() => <DialogsComponent/>}/>
             <Route path='/users' render={() => <UserComponent/>}/>
         </div>
