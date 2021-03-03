@@ -1,3 +1,5 @@
+import {userAPI} from '../api/api'
+
 let FOLLOW = 'FOLLOW';
 let UNFOLLOW = 'UNFOLLOW';
 let SET_USERS = 'SET_USERS';
@@ -51,5 +53,14 @@ export const setUsers = (users) => ({type: SET_USERS, users})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const setTotalElements = (totalElements) => ({type: SET_TOTAL_ELEMENTS, totalElements})
 export const toggleFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+
+export const followSuccess = (userId) => (dispatch) => {
+    userAPI.follow(userId)
+        .then(resp => { dispatch(follow(userId)) })
+}
+export const followDelete = (userId) => (dispatch) => {
+    userAPI.unFollow(userId)
+        .then(resp => { dispatch(unFollow(userId)) })
+}
 
 export default userReducer;

@@ -29,12 +29,8 @@ const User = (props) => {
                             </NavLink>
                         </div>
                         {u.follow
-                            ? <button onClick={e => {
-                                props.follow(u.id)
-                            }}>Follow</button>
-                            : <button onClick={e => {
-                                props.unfollow(u.id)
-                            }}>Unfollow</button>
+                            ? <button onClick={e => { props.follow(u.id)}}>Follow</button>
+                            : <button onClick={e => { props.unfollow(u.id)}}>Unfollow</button>
                         }
                         <span>
                                 <div>

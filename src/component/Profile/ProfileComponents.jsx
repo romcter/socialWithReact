@@ -1,25 +1,21 @@
-import React from 'react';
+import React, {useEffect}from 'react';
 import {withRouter} from "react-router";
-import {addPost, setUserPhoto} from "../../redux/profile-reducer";
+import {addPost, getUserProfile, setUserPhoto} from "../../redux/profile-reducer";
 import {connect} from "react-redux";
-import * as axios from "axios";
 import Profile from "./Profile";
 
-class ProfileComponents extends React.Component{
+const ProfileComponents = (props) => {
 
-    componentWillMount() {
-        let userId = this.props.match.params.userId
-        if(!userId) {
+    useEffect(() => {
+        let userId = props.match.params.userId
+        if(!userId)
             userId = 1
-        }
-        axios.get(`http://localhost:8080/user/${userId}`).
-        then(response => this.props.setUserPhoto(response.data.photo))
-    }
-    render() {
-        return (
-            <Profile {...this.props} photo = {this.props.profile}/>
-        )
-    }
+        props.getUserProfile(userId)},[])
+
+
+    return (
+        <Profile {...props} photo = {props.profile}/>
+    )
 }
 let withUrlDataContainerComponent = withRouter(ProfileComponents)
 
@@ -29,4 +25,4 @@ let mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps,
-    {addPost,setUserPhoto})(withUrlDataContainerComponent)
+    {addPost,setUserPhoto, getUserProfile})(withUrlDataContainerComponent)

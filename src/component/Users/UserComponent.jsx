@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
-    follow,
+    followSuccess,
     setTotalElements,
     setCurrentPage,
     setUsers,
-    unFollow,
+    followDelete,
     toggleFetching
 } from "../../redux/users-reducer";
 import * as axios from "axios";
@@ -41,8 +41,8 @@ class UserComponent extends React.Component {
                      currentPage={this.props.currentPage}
                      onPageChanged={this.onPageChanged}
                      userPage={this.props.userPage}
-                     follow={this.props.follow}
-                     unfollow={this.props.unfollow}
+                     follow={this.props.followSuccess}
+                     unfollow={this.props.followDelete}
         />
         </div>
     }
@@ -69,5 +69,5 @@ let mapStateToProps = (state) =>{
 //     }
 // }
 export default connect(mapStateToProps,
-    {follow,unFollow,setUsers,setCurrentPage,setTotalElements,toggleFetching}
+    {followSuccess,followDelete,setUsers,setCurrentPage,setTotalElements,toggleFetching}
     )(UserComponent);

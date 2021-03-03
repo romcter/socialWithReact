@@ -1,3 +1,5 @@
+import {userAPI} from "../api/api";
+
 let ADD_POST = 'ADD_POST';
 let SET_USER_PHOTO = 'SET_USER_PHOTO';
 
@@ -23,5 +25,8 @@ const profileReducer = (state = initialState, action) => {
 }
 export const addPost = (newTest) => ({type: ADD_POST, newTest})
 export const setUserPhoto = (pathToPhoto) => ({type: SET_USER_PHOTO, pathToPhoto})
-
+export const getUserProfile = (userId) => (dispatch) => {
+    userAPI.getUserById(userId).
+        then(resp => {dispatch(setUserPhoto(resp.data.photo))})
+}
 export default profileReducer;
