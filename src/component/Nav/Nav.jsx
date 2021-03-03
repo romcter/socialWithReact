@@ -15,7 +15,7 @@ const Nav = () =>{
                 <NavLink to='/users' activeClassName={n.active}>Users</NavLink>
             </div>
             <div className={n.item}>
-                <a href='/message'>Message</a>
+                <NavLink to='/login' activeClassName={n.active}>Login</NavLink>
             </div>
         </nav>
     )

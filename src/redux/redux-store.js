@@ -3,11 +3,13 @@ import dialogReducer from "./dialog-reducer";
 import thunk from 'redux-thunk';
 import userReducer from './users-reducer';
 import profileReducer from "./profile-reducer";
+import { reducer as formReducer } from 'redux-form'
 
 let reducer = combineReducers({
     dialogReducer: dialogReducer,
     userPage: userReducer,
-    profilePage: profileReducer
+    profilePage: profileReducer,
+    form: formReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
