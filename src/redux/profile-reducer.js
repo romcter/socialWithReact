@@ -23,7 +23,7 @@ const profileReducer = (state = initialState, action) => {
             return state
     }
 }
-export const addPost = (newTest) => ({type: ADD_POST, newTest})
+export const addPost = (newText) => ({type: ADD_POST, newText})
 export const setUserPhoto = (pathToPhoto) => ({type: SET_USER_PHOTO, pathToPhoto})
 export const getUserProfile = (userId) => (dispatch) => {
     userAPI.getUserById(userId).

@@ -1,10 +1,12 @@
-import Reqct, {useEffect} from 'react';
+import React from 'react';
 import LoginForm from "./LoginForm";
+import {connect} from "react-redux";
+import {login} from "../../redux/login-reducer";
 
 const Login = (props) => {
 
     const onSubmit = (formData) => {
-        console.log(formData)
+        props.login(formData)
     }
 
     return (
@@ -14,4 +16,4 @@ const Login = (props) => {
         </div>
     )
 }
-export default Login;
+export default connect(null, {login})(Login);

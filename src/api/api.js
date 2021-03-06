@@ -14,5 +14,8 @@ export const userAPI = {
     },
     unFollow(userId) {
         return instance.delete(`user/follow/${userId}`)
+    },
+    login(logAndPass) {
+        return instance.post('api/v1/auth/login', logAndPass)
     }
 }

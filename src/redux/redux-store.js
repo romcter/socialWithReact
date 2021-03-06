@@ -4,11 +4,13 @@ import thunk from 'redux-thunk';
 import userReducer from './users-reducer';
 import profileReducer from "./profile-reducer";
 import { reducer as formReducer } from 'redux-form'
+import loginReducer from "./login-reducer";
 
 let reducer = combineReducers({
     dialogReducer: dialogReducer,
     userPage: userReducer,
     profilePage: profileReducer,
+    login: loginReducer,
     form: formReducer
 })
 

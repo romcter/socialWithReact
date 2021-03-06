@@ -10,7 +10,8 @@ import {
 } from "../../redux/users-reducer";
 import * as axios from "axios";
 import User from "./User";
-import Preloader from "../common.Preloader/Preloader";
+import Preloader from "../common/Preloader/Preloader";
+import {getCurrentPage, getIsFetching, getPageSize, getTotalElement, getUser} from "./user-selector";
 
 class UserComponent extends React.Component {
     componentDidMount() {
@@ -51,11 +52,11 @@ class UserComponent extends React.Component {
 
 let mapStateToProps = (state) =>{
     return {
-        userPage: state.userPage.users,
-        pageSize: state.userPage.pageSize,
-        totalElements: state.userPage.totalElements,
-        currentPage: state.userPage.currentPage,
-        isFetching: state.userPage.isFetching
+        userPage: getUser(state),
+        pageSize: getPageSize(state),
+        totalElements: getTotalElement(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state)
     }
 }
 // let mapStateToDispatch = (dispatch) => {
